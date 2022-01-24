@@ -1,22 +1,29 @@
+import Caroussel from 'shared/components/Caroussel';
+import ProductCards from 'shared/components/ProductCards';
+import { IProduct } from 'shared/interfaces/products.interface';
 import * as S from './styles';
 
-const Main = ({
-  title = 'React Avançado',
-  description = 'Typescript, ReactJS, NextJS e Styled Components'
-}) => (
-  <S.Wrapper>
-    <S.Logo
-      src="/img/logo.svg"
-      alt="Image de um átomo e React Avançado escrito ao lado."
-    />
-    <S.Title>{title}</S.Title>
-    <S.Description>{description}</S.Description>
-    <S.Illustration
-      src="/img/hero-illustration.svg"
-      alt="Desenvolvedor de frente para um tela de código
-    "
-    />
-  </S.Wrapper>
-);
+interface MainProps {
+  products: IProduct[];
+}
 
-export default Main;
+export default function Main({ products }: MainProps) {
+  return (
+    <>
+      <Caroussel />
+      <S.Container>
+        <S.ProductsList>
+          {products.map((prd) => (
+            <S.ProductsListItem key={prd.Id}>
+              <ProductCards
+                Name={prd.Name}
+                Value={prd.Value}
+                ProductUrl={prd.Colors[0].ProductColorUrl}
+              />
+            </S.ProductsListItem>
+          ))}
+        </S.ProductsList>
+      </S.Container>
+    </>
+  );
+}
