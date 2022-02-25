@@ -18,6 +18,7 @@ export default function Main({ products }: MainProps) {
               <ProductCards
                 Name={prd.Name}
                 Value={prd.Value}
+                StockAmount={prd.StockAmount}
                 ProductUrl={prd.Colors[0].ProductColorUrl}
               />
             </S.ProductsListItem>

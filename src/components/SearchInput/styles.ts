@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 50%;
   display: flex;
   align-items: center;
-  background: var(--darker-white);
+  background: var(--white);
   border-radius: 12px;
 
   svg {
@@ -14,7 +14,7 @@ export const Container = styled.div`
 
 export const Content = styled.input`
   font-size: 1rem;
-  background: var(--darker-white);
+  background: var(--white);
   font-family: 'Roboto', sans-serif;
   padding: 15px;
   width: 100%;

@@ -31,12 +31,17 @@ const createGlobalStyles = createGlobalStyle`
   }
 
   body {
-        background-color: var(--white);
+        background-color: var(--background);
         -webkit-font-smoothing: antialiased;
     }
 
   h1, h2, h3, h4, h5, strong {
     font-weight: 600;
+  }
+
+  p {
+  font-family: var(--font-default);
+
   }
 
   input, button {
