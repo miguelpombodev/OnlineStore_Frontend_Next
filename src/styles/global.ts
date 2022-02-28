@@ -14,6 +14,7 @@ const createGlobalStyles = createGlobalStyle`
         --red: #E52E4D;
         --text-title: #363F5F;
         --white: #FFFFFF;
+        --golden-yellow: #f0b022;
         
         --background: #F0F2F5;
         
