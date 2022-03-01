@@ -1,5 +1,5 @@
-import Caroussel from 'shared/components/Caroussel';
-import ProductCards from 'shared/components/ProductCards';
+import CarrouselBannerContainer from 'shared/components/CarrouselBannerContainer';
+import CarrouselCardsContainer from 'shared/components/CarrouselCardsContainer';
 import { IProduct } from 'shared/interfaces/products.interface';
 import * as S from './styles';
 
@@ -10,20 +10,12 @@ interface MainProps {
 export default function Main({ products }: MainProps) {
   return (
     <>
-      <Caroussel />
       <S.Container>
-        <S.ProductsList>
-          {products.map((prd) => (
-            <S.ProductsListItem key={prd.Id}>
-              <ProductCards
-                Name={prd.Name}
-                Value={prd.Value}
-                StockAmount={prd.StockAmount}
-                ProductUrl={prd.Colors[0].ProductColorUrl}
-              />
-            </S.ProductsListItem>
-          ))}
-        </S.ProductsList>
+        <CarrouselBannerContainer />
+        <CarrouselCardsContainer
+          productCards={products}
+          heading="Camisas Masculinas"
+        />
       </S.Container>
     </>
   );

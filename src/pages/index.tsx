@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 import api from 'services/api';
 
 interface MainProps {
-  products: IProduct[];
+  maleShirts: IProduct[];
 }
 
 interface IProduct {
@@ -22,17 +22,19 @@ interface ProductColors {
   Name: string;
 }
 
-export default function Home({ products }: MainProps) {
-  return <Main products={products} />;
+export default function Home({ maleShirts }: MainProps) {
+  return <Main products={maleShirts} />;
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const { data } = await api.get('/products');
-  const products = data;
+  const { data } = await api.get('/products', {
+    params: { category: 'Camisa Masculina ' }
+  });
+  const maleShirts = data;
 
   return {
     props: {
-      products
+      maleShirts
     }
   };
 };

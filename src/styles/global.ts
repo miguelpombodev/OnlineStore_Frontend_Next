@@ -54,14 +54,6 @@ const createGlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 
-  .swiper-container {
-    width: 80%;
-    height: 10%;
-  }
-  .swiper-slide {
-    text-align: center;
-    width: 100% !important;
-  }
 `;
 
 export default createGlobalStyles;
