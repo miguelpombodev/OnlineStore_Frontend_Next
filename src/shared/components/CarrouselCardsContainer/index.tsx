@@ -15,7 +15,7 @@ const CarrouselCardsContainer = ({
   heading
 }: ICarrouselContainer) => {
   const config: SwiperOptions = {
-    slidesPerView: 4,
+    slidesPerView: 5,
     autoplay: false,
     loop: true,
     navigation: true

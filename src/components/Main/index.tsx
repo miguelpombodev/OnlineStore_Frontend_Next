@@ -4,19 +4,13 @@ import { IProduct } from 'shared/interfaces/products.interface';
 import * as S from './styles';
 
 interface MainProps {
-  products: IProduct[];
+  children: React.ReactNode;
 }
 
-export default function Main({ products }: MainProps) {
+export default function Main({ children }: MainProps) {
   return (
     <>
-      <S.Container>
-        <CarrouselBannerContainer />
-        <CarrouselCardsContainer
-          productCards={products}
-          heading="Camisas Masculinas"
-        />
-      </S.Container>
+      <S.Container>{children}</S.Container>
     </>
   );
 }

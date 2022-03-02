@@ -1,6 +1,7 @@
 import Header from 'components/Header';
 import type { AppProps /*, AppContext */ } from 'next/app';
 import Head from 'next/head';
+import Main from 'components/Main';
 
 import GlobalStyles from 'styles/global';
 
@@ -21,7 +22,9 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
       <GlobalStyles />
       <Header />
-      <Component {...pageProps} />
+      <Main>
+        <Component {...pageProps} />
+      </Main>
     </>
   );
 }

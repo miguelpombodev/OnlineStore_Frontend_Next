@@ -5,7 +5,6 @@ export const Container = styled.nav`
   background: var(--black);
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
 `;
 
 export const NavSection = styled.div`

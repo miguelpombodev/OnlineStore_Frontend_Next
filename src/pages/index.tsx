@@ -1,9 +1,11 @@
-import Main from 'components/Main';
 import { GetServerSideProps } from 'next';
-import api from 'services/api';
+import ProductServices from 'services/Products/ProductServices';
+import CarrouselBannerContainer from 'shared/components/CarrouselBannerContainer';
+import CarrouselCardsContainer from 'shared/components/CarrouselCardsContainer';
 
 interface MainProps {
   maleShirts: IProduct[];
+  maleShoes: IProduct[];
 }
 
 interface IProduct {
@@ -22,19 +24,37 @@ interface ProductColors {
   Name: string;
 }
 
-export default function Home({ maleShirts }: MainProps) {
-  return <Main products={maleShirts} />;
+export default function Home({ maleShirts, maleShoes }: MainProps) {
+  return (
+    <>
+      <CarrouselBannerContainer />
+      <CarrouselCardsContainer
+        productCards={maleShirts}
+        heading="Camisas Masculinas"
+      />
+      <CarrouselCardsContainer
+        productCards={maleShoes}
+        heading="Tênis Masculino"
+      />
+    </>
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const { data } = await api.get('/products', {
-    params: { category: 'Camisa Masculina ' }
-  });
-  const maleShirts = data;
+  const _productServices = new ProductServices();
+
+  const maleShirts = await _productServices.getCategorizedProduct(
+    'Camisa Masculina'
+  );
+
+  const maleShoes = await _productServices.getCategorizedProduct(
+    'Tênis Masculino'
+  );
 
   return {
     props: {
-      maleShirts
+      maleShirts,
+      maleShoes
     }
   };
 };
