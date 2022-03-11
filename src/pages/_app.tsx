@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Main from 'components/Main';
 
 import GlobalStyles from 'styles/global';
+import Footer from 'components/Footer';
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -25,6 +26,7 @@ function App({ Component, pageProps }: AppProps) {
       <Main>
         <Component {...pageProps} />
       </Main>
+      <Footer />
     </>
   );
 }

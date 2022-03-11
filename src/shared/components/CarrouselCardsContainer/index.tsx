@@ -33,6 +33,7 @@ const CarrouselCardsContainer = ({
                 ProductUrl={card.Colors[0].ProductColorUrl}
                 StockAmount={card.StockAmount}
                 Value={card.Value}
+                Sku={card.Sku}
               />
             </SwiperSlide>
           ))}
